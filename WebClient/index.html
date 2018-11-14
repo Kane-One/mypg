@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PUBG Map</title>
+</head>
+<body>
+<canvas id="main-map" width="600" height="600"></canvas>
+<script>
+    class PubgMap{
+
+        constructor(canvas){
+            this.canvas = canvas;
+            this.ctx = this.canvas.getContext('2d');
+            this.init();
+        }
+
+        init(){
+            this.ctx.strokeRect(25, 25, 100, 100);
+        }
+    }
+
+    main_map = new PubgMap(document.getElementById('main-map'));
+    main_map.init();
+</script>
+</body>
+</html>
