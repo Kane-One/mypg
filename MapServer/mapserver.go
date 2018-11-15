@@ -1,9 +1,8 @@
-package MapServer
+package main
 
-import (
-	"proxy"
-)
+import "./proxy"
 
 func main()  {
 
+	proxy.Fuck()
 }

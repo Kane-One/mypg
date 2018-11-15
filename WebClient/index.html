@@ -3,28 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>PUBG Map</title>
-    <script src="js/konva.min.js"></script>
-    <style type="text/css">
-        table {
-            width: 100%;
-            height: 100%;
-            text-align: center;
-        }
-
-        #main-map {
-            width: 800px;
-            height: 800px;
-            border: 3px solid #ccc;
-            float: right;
-        }
-
-        #mini-map {
-            width: 800px;
-            height: 800px;
-            border: 3px solid #ddd;
-            float: left;
-        }
-    </style>
+    <link rel="stylesheet" href="static/main.css">
+    <script src="static/scoket.io.js"></script>
+    <script src="static/konva.min.js"></script>
+    <script src="static/pubg_map.js"></script>
 </head>
 <body>
 <table>
@@ -43,124 +25,12 @@
         </td>
     </tr>
 </table>
-
-
 <script>
-
-    /* 地图类 */
-    class PubgMap {
-
-        constructor(container_id) {
-            this.containerId = container_id;
-            this.stage = new Konva.Stage({
-                container: this.containerId,
-                width: 800,
-                height: 800
-            });
-
-            this.layer = new Konva.Layer();
-            this.stage.add(this.layer);
-        }
-
-        init() {
-            let player1 = new player(this.stage, this.layer, 'kane', 120, 20, 30);
-            player1.setEnemy();
-            player1.create();
-
-            let player2 = new player(this.stage, this.layer, 'kane', 160, 100, 30);
-            player2.setFriend();
-            player2.create();
-
-            let player3 = new player(this.stage, this.layer, 'kane', 300, 200, 30);
-            player3.setEnemy();
-            player3.create();
-
-            let player4 = new player(this.stage, this.layer, 'kane', 130, 400, 30);
-            player4.setSelf();
-            player4.create();
-
-        }
-    }
-
-
-    class player {
-
-        constructor(stage, layer, player_id, position_x, position_y, angle) {
-            this.isSelf = false;
-            this.isFriend = false;
-            this.isEnemy = false;
-            this.stage = stage;
-            this.layer = layer;
-            this.player_id = player_id;
-            this.position_x = position_x;
-            this.position_y = position_y;
-            this.angle = angle; // 朝向角度
-            this.bloods = undefined; // 血量
-            this.is_offline = undefined; // 是否掉线
-        }
-
-        setEnemy() {
-            this.isEnemy = true;
-        }
-
-        setFriend() {
-            this.isFriend = true;
-        }
-
-        setSelf() {
-            this.isSelf = true;
-        }
-
-        create() {
-            let circle = new Konva.Circle({
-                x: this.position_x,
-                y: this.position_y,
-                radius: 5,
-                fill: this.getPlayerFillColor(),
-                stroke: 'black',
-                strokeWidth: 1
-            });
-
-            this.layer.add(circle);
-            this.layer.draw();
-
-        }
-
-        getPlayerFillColor() {
-            if (this.isSelf) {
-                return 'green';
-            }
-            if (this.isEnemy) {
-                return 'red';
-            }
-            if (this.isFriend) {
-                return 'blue';
-            }
-            return 'white';
-        }
-
-        updatePosition(position_x, position_y) {
-            this.position_x = position_x;
-            this.position_y = position_y;
-        }
-
-        updateBlood(blood) {
-            this.blood = blood;
-        }
-
-        updateAngle(angle) {
-            this.angle = angle;
-        }
-    }
-
-
     {
         let main_map = new PubgMap('main-map');
         main_map.init();
 
     }
-
-
 </script>
 </body>
 </html>
