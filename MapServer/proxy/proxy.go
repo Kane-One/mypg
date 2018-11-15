@@ -1,0 +1,6 @@
+package MapServer
+
+func Fuck()  {
+
+}
+
