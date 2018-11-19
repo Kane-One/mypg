@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PUBG Map</title>
+    <link rel="stylesheet" href="static/main.css">
+    <script src="static/scoket.io.js"></script>
+    <script src="static/konva.min.js"></script>
+    <script src="static/pubg_map.js"></script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <h2>Main Map</h2></td>
+        <td>
+            <h2>Mini Map</h2></td>
+    </tr>
+    <tr>
+        <td>
+            <div id="main-map"></div>
+        </td>
+        <td>
+            <div id="mini-map"></div>
+        </td>
+    </tr>
+</table>
+<script>
+    {
+        let main_map = new PubgMap('main-map');
+        main_map.init();
+
+    }
+
+    {
+        var ws = new WebSocket('ws://localhost:9502');
+
+        ws.onopen = function () {
+            console.log('connected');
+        };
+
+        ws.onmessage = function(event) {
+            var data = event.data;
+            console.log(data);
+        };
+
+        ws.onclose = function(event) {
+        };
+    }
+</script>
+</body>
+</html>
