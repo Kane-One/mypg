@@ -1,7 +1,12 @@
-FROM twosee/swoole-coroutine
+FROM alpine
 
-RUN apt --assume-yes  install nginx
+RUN apk add nginx
 
-COPY nginx/sites/* /etc/nginx/sites-enabled
+RUN mkdir /run/nginx
 
-COPY php/php.ini /usr/local/etc/php/php.ini
+RUN apk add nodejs
+
+RUN rm -f /etc/nginx/conf.d/default.conf
+
+COPY nginx/conf.d/* /etc/nginx/conf.d
+

@@ -1,7 +1,0 @@
-[16-Nov-2018 18:55:31 Asia/Shanghai] PHP Warning:  Division by zero in /var/www/map-web/websocket.php on line 10
-[16-Nov-2018 19:05:00 Asia/Shanghai] PHP Fatal error:  Cannot redeclare log() in /var/www/map-web/websocket.php on line 15
-[16-Nov-2018 19:06:12 Asia/Shanghai] PHP Fatal error:  Cannot redeclare log() in /var/www/map-web/websocket.php on line 15
-[16-Nov-2018 19:06:51 Asia/Shanghai] PHP Fatal error:  Cannot redeclare log() in /var/www/map-web/websocket.php on line 15
-[16-Nov-2018 19:07:32 Asia/Shanghai] PHP Warning:  log() expects parameter 1 to be float, string given in /var/www/map-web/websocket.php on line 20
-[16-Nov-2018 19:07:32 Asia/Shanghai] PHP Warning:  log() expects parameter 1 to be float, string given in /var/www/map-web/websocket.php on line 22
-[16-Nov-2018 19:07:32 Asia/Shanghai] PHP Warning:  log() expects parameter 1 to be float, string given in /var/www/map-web/websocket.php on line 36

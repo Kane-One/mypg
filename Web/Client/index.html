@@ -29,7 +29,6 @@
     {
         let main_map = new PubgMap('main-map');
         main_map.init();
-
     }
 
     {
@@ -40,8 +39,11 @@
         };
 
         ws.onmessage = function(event) {
-            var data = event.data;
+            let data = event.data;
             console.log(data);
+
+            let player_data = JSON.parse(data)
+
         };
 
         ws.onclose = function(event) {
